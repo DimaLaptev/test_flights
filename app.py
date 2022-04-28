@@ -1,5 +1,5 @@
-from flask import Flask, g
-from sqlalchemy import create_engine, Integer, String
+from flask import Flask
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from routes.flights import flights_bp
