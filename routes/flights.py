@@ -1,8 +1,7 @@
 import flask
 from flask import Blueprint, jsonify
 from sqlalchemy import select
-
-from models import Flight
+from models.flight import Flight
 
 flights_bp = Blueprint('flights', __name__, url_prefix='/api/flights')
 
@@ -13,7 +12,5 @@ def get_flights():
     session = sm()
     stmt = select(Flight)
     flights = session.scalars(stmt).all()
-#    for u in session.query(flights).all():
-#        print(u.__dict__)
-#    print(flights)
-    return jsonify(flights)
+    list_flights = [flight.as_dict() for flight in flights]
+    return jsonify({"list": list_flights})
