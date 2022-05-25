@@ -1,0 +1,1 @@
+# test_flights is a table of flights with several characteristics, which is stored in a postgres database. Upon request, the client must receive each flight separately, receive a list of flights sorted by different parameters.
